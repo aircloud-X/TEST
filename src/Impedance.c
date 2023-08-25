@@ -113,7 +113,8 @@ int32_t AppIMPCtrl(uint32_t Command, void *pPara)
       wupt_cfg.WuptEndSeq = WUPTENDSEQ_A;
       wupt_cfg.WuptOrder[0] = SEQID_0;
       wupt_cfg.SeqxSleepTime[SEQID_0] = 4;
-      wupt_cfg.SeqxWakeupTime[SEQID_0] = (uint32_t)(AppIMPCfg.WuptClkFreq/AppIMPCfg.ImpODR)-4;
+      // wupt_cfg.SeqxWakeupTime[SEQID_0] = (uint32_t)(AppIMPCfg.WuptClkFreq/AppIMPCfg.ImpODR)-4;
+      wupt_cfg.SeqxWakeupTime[SEQID_0] = 1;//采样测量间隔时间，测量速度由他控制，越小越快
       AD5940_WUPTCfg(&wupt_cfg);
       
       AppIMPCfg.FifoDataCount = 0;  /* restart */
