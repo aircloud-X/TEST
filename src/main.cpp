@@ -325,12 +325,12 @@ void setup()
 void loop()
 {
   uint32_t temp;
-  if (AD5940_GetMCUIntFlag())
-  {
-    AD5940_ClrMCUIntFlag();
+  // if (AD5940_GetMCUIntFlag())
+  // {
+    // AD5940_ClrMCUIntFlag();
     temp = APPBUFF_SIZE;
     AppIMPISR(AppBuff, &temp);
     ImpedanceShowResult(AppBuff, temp);
-  }
+  // }
   delay(500);
 }
